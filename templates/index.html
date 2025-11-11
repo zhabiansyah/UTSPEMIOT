@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Cuaca ESP32</title>
+  <style>
+    body { font-family: Arial; background-color: #eef2f3; margin: 40px; }
+    h2 { color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+    th { background-color: #3498db; color: white; }
+  </style>
+</head>
+<body>
+  <h2>🌡 Data Cuaca dari ESP32 (via MQTT)</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Suhu (°C)</th>
+      <th>Kelembapan (%)</th>
+      <th>Kecerahan (Lux)</th>
+      <th>Waktu</th>
+    </tr>
+    {% for row in data %}
+    <tr>
+      <td>{{ row['id'] }}</td>
+      <td>{{ row['suhu'] }}</td>
+      <td>{{ row['humid'] }}</td>
+      <td>{{ row['lux'] }}</td>
+      <td>{{ row['ts'] }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
